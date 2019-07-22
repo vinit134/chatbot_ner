@@ -1,8 +1,8 @@
 #!/bin/bash
 
 NAME="chatbot_ner"                                              # Name of the application
-DJANGODIR=./chatbot_ner                                         # Django project directory
-SOCKFILE=./run/gunicorn.sock                                    # we will communicate using this unix socket
+DJANGODIR=chatbot_ner                                         # Django project directory
+SOCKFILE=run/gunicorn.sock                                    # we will communicate using this unix socket
 USER=`whoami`                                                   # the user to run as
 GROUP=`id -gn`                                                  # the group to run as
 NUM_WORKERS=4                                                   # how many worker processes should Gunicorn spawn
@@ -11,16 +11,16 @@ DJANGO_WSGI_MODULE=chatbot_ner.wsgi                             # WSGI module na
 PORT=8081
 TIMEOUT=600
 
-echo # Installing virtualenvwrapper"
-pip install -U virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
-mkvirtualenv chatbotnervenv
-workon chatbotnervenv
+# echo # Installing virtualenvwrapper"
+# pip install -U virtualenvwrapper
+# source /usr/local/bin/virtualenvwrapper.sh
+# mkvirtualenv chatbotnervenv
+# workon chatbotnervenv
 
-echo "Starting $NAME as `whoami`"
-cd $DJANGODIR
-source /usr/local/bin/virtualenvwrapper.sh
-workon chatbotnervenv
+# echo "Starting $NAME as `whoami`"
+# cd $DJANGODIR
+# source /usr/local/bin/virtualenvwrapper.sh
+# workon chatbotnervenv
 
 export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
 export PYTHONPATH=$DJANGODIR:$PYTHONPATH
@@ -32,7 +32,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 pip install -r runtime.txt
 
 echo "copying config & run import data"
-cd ./chatbot_ner/
+cd chatbot_ner/
 cp config.example config
 
 cd ..
