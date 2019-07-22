@@ -11,6 +11,7 @@ DJANGO_WSGI_MODULE=chatbot_ner.wsgi                             # WSGI module na
 PORT=8081
 TIMEOUT=600
 
+echo `pwd`
 # echo # Installing virtualenvwrapper"
 # pip install -U virtualenvwrapper
 # source /usr/local/bin/virtualenvwrapper.sh
