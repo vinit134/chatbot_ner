@@ -8,7 +8,7 @@ GROUP=`id -gn`                                                  # the group to r
 NUM_WORKERS=4                                                   # how many worker processes should Gunicorn spawn
 DJANGO_SETTINGS_MODULE=chatbot_ner.settings                     # which settings file should Django use
 DJANGO_WSGI_MODULE=chatbot_ner.wsgi                             # WSGI module name
-PORT=8080
+PORT=8081
 TIMEOUT=600
 
 echo `pwd`
@@ -33,10 +33,10 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 #pip install -r requirements.txt
 
 echo "copying config & run import data"
-#cd ./chatbot_ner/
+
 cp config.example config
 
-cd ..
+
 python initial_setup.py
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
