@@ -10,6 +10,7 @@ django==1.11.18
 django-dotenv==1.4.2
 weighted-levenshtein==0.1
 regex==2018.7.11
+Cython
 ipython
 word2number==1.1
 python-crfsuite==0.9.6
